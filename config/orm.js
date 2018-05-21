@@ -23,11 +23,11 @@ function objToSql(ob) {
     }
   }
   return arr.toString();
-};
+}
 
 var orm = {
-  all: function(tableData, cb) {
-    var queryString = "SELECT * FROM burgers ;";
+  all: function(tableInput, cb) {
+    var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -40,7 +40,7 @@ var orm = {
 
     queryString += " (";
     queryString += cols.toString();
-    queryString += ", devoured)"
+    queryString += ") "
     queryString += "VALUES (";
     queryString += printQuestionMarks(vals.length);
     queryString += ") ";

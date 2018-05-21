@@ -7,13 +7,34 @@ router.get("/", function(req, res) {
  });
  
  router.get("/burger", function(req, res) {
-   console.log(res.body);
+  //  console.log(res.body);
    burgers.all(function(burgerData) {
-     var burgObject = {
-       burger_data: burgerData 
+     var templateData = {
+       burgerData: burgerData 
       };
-     res.render("index", burgObject);
+
+      // var burgArr = burgObject.burger_data;
+      // console.log(burgArr);
+      
+     res.render("index", templateData);
    });
  });
- 
+
+ router.post('/burger/create', function(req, res) {
+   console.log("post working");
+  //  console.log(req.body);
+   burgers.create(req.body.burger_name, function(result) {
+     console.log('Post results = ' + result);
+     res.redirect('/burger');
+   });
+ });
+
+ router.put('/burger/update/:id', function(req, res) {
+   console.log("I am working");
+   burgers.update({devoured: true}, "id = " + req.params.id, function(result){
+     res.status(200).end();
+     console.log("yay");
+   });
+ });
+
  module.exports = router;

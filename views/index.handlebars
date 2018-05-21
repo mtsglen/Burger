@@ -1,32 +1,59 @@
-<h1>Burgers!</h1>
+{{!-- <section id="header">
+  <img src="https://e96pp6nibh-flywheel.netdna-ssl.com/wp-content/uploads/2016/09/BobsBurgerStack_hires2--e1474387592628.jpg" alt="bobs burgers">
+</section> --}}
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-    <li>
-      {{burgers}}
-    </li>
-      {{!-- <button class="change-devour" data-id="{{id}}" data-newDevour="{{devoured}}"> --}}
-        {{!-- {{#if }}Devoured{{else}}<!--gotta move to right side of screen -->{{/if}} --}}
-      {{!-- </button> --}}
-    {{/unless}}
-  {{/each}}
-</ul>
+<section id="burgerMenu">
+  <h1>BurgersMenu</h1>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-    {{/if}}
-  {{/each}}
-</ul>
+  <ul id="burgers">
+    {{#each burgerData}}
+      {{#unless devoured}}
+      <li>
+          {{burger_name}}
+          <button class="devour_it" data-id="{{id}}">Devour It!</button>
+      </li>
+      {{/unless}}
+    {{/each}}
+  </ul>
+</section>
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+<section id="devoured">
+  <h1>Devoured</h1>
+  <ul>
+    {{#each burgerData}}
+      {{#if devoured}}
+        <li>
+            {{burger_name}}
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</section>
 
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
+<section id="addBurger">
+  <h2>Add a Burger</h2>
+  <form class="create-form" method="POST" action="/burger/create">
 
-  <button type="submit">Add Burger</button>
-</form>
+    <div class="form-group">
+      <label for="burger">Burger Name:</label>
+      <input type="text" id="burgerName" name="burger_name">
+    </div>
+
+    <button type="submit">Add Burger</button>
+  </form>
+</section>
+
+  <script>
+    var burgerList = $('#burgers');
+    burgerList.on('click', ".devour_it", function(event) {
+      const burgerId = $(this).attr('data-id');
+      $.ajax({
+        method: "PUT",
+        url: `/burger/update/${burgerId}`
+      }).done(response => {
+        window.location.reload()
+      })
+    });
+  </script>
+
+

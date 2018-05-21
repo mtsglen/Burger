@@ -1,0 +1,24 @@
+body {
+  background-image: url ("https://e96pp6nibh-flywheel.netdna-ssl.com/wp-content/uploads/2016/09/BobsBurgerStack_hires2--e1474387592628.jpg");
+}
+
+h1 {
+  
+}
+
+#burgerMenu {
+  background-image: ("../img/chalkboard-black.jpeg");
+  float: left;
+  width: 33%;
+  clear: both;
+}
+
+#devoured {
+  float: left;
+  width: 33%;
+  clear: both;
+}
+
+#addBurger {
+  width: 33%;
+}
