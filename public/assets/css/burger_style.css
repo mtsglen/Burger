@@ -1,24 +1,55 @@
 body {
-  background-image: url ("https://e96pp6nibh-flywheel.netdna-ssl.com/wp-content/uploads/2016/09/BobsBurgerStack_hires2--e1474387592628.jpg");
+  background-image:url("../../assets/img/chalkboard-black.jpg");
+}
+
+#header img {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 auto;
 }
 
 h1 {
-  
+  font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 40px;
+}
+
+li, label {
+  font-size: 25px;
+}
+
+#mid {
+  width: 100%;
+}
+
+h1, h2, li, label {
+  color: aliceblue;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 #burgerMenu {
-  background-image: ("../img/chalkboard-black.jpeg");
   float: left;
-  width: 33%;
-  clear: both;
+  width: 40%;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+  list-style-position: inside;
 }
 
 #devoured {
-  float: left;
-  width: 33%;
-  clear: both;
+  float: right;
+  width: 40%;
+  padding: 20px;
+  padding-top: 50px;
+  text-align: center;
+  list-style-position: inside;
+  /* clear: left; */
 }
 
 #addBurger {
-  width: 33%;
+  margin: 50px;
+  text-align: center;
+  clear: both;
+  float: left;
+  width: 100%;
 }

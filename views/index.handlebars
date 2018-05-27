@@ -1,37 +1,40 @@
 {{!-- <section id="header">
   <img src="https://e96pp6nibh-flywheel.netdna-ssl.com/wp-content/uploads/2016/09/BobsBurgerStack_hires2--e1474387592628.jpg" alt="bobs burgers">
 </section> --}}
-
-<section id="burgerMenu">
-  <h1>BurgersMenu</h1>
-
-  <ul id="burgers">
-    {{#each burgerData}}
-      {{#unless devoured}}
-      <li>
-          {{burger_name}}
-          <button class="devour_it" data-id="{{id}}">Devour It!</button>
-      </li>
-      {{/unless}}
-    {{/each}}
-  </ul>
+<section id="header">
+  <img src="https://img.wondercostumes.com/images/blog/16/Bobs-Burgers-Appreciation-and-Costumes.png" alt="">
 </section>
+<section id="mid">
+  <section id="burgerMenu">
+    <h1>Burgers Menu</h1>
 
-<section id="devoured">
-  <h1>Devoured</h1>
-  <ul>
-    {{#each burgerData}}
-      {{#if devoured}}
+    <ul id="burgers">
+      {{#each burgerData}}
+        {{#unless devoured}}
         <li>
             {{burger_name}}
+            <button class="devour_it" data-id="{{id}}">Devour It!</button>
         </li>
-      {{/if}}
-    {{/each}}
-  </ul>
-</section>
+        {{/unless}}
+      {{/each}}
+    </ul>
+  </section>
 
+  <section id="devoured">
+    <h1>Devoured</h1>
+    <ul>
+      {{#each burgerData}}
+        {{#if devoured}}
+          <li>
+              {{burger_name}}
+          </li>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </section>
+</section>
 <section id="addBurger">
-  <h2>Add a Burger</h2>
+  <h1>Add a Burger</h1>
   <form class="create-form" method="POST" action="/burger/create">
 
     <div class="form-group">
